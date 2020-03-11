@@ -8,7 +8,7 @@
 #include<string>
 
 // ADD ANY HEADER FILES YOU NEED
-
+#include "bag.h"
 
 using namespace std;
 
@@ -82,8 +82,8 @@ int main(int argc, char* argv[])
     fin.close();
   }
 
-  //cout << "This is the next part of the program that you will exercise in the next project." << endl;
-  //cont.print_words();
+  cout << "This is the next part of the program that you will exercise in the next project." << endl;
+  cont.print_words();
 
   cout<<"Enter word: ";
   std::string word;
