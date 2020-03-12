@@ -12,8 +12,7 @@ void Bag::insert_word(string newEntry, std::string fileName) {
 		head = new dnode<Word>();
 		Word* newWord = new Word(newEntry);
 		head->setData(newWord);
-		File* newFile = new File(fileName);
-		newWord->insert(newFile);
+		newWord->insert(fileName);
 		return;
 	}  
 
@@ -24,8 +23,7 @@ void Bag::insert_word(string newEntry, std::string fileName) {
 	while (current != NULL) {
 		//if newEntry == current Node then increment file
 		if (currentWord->getWord() == newEntry) {
-			File* newFile = new File(fileName);
-			currentWord->insert(newFile);
+			currentWord->insert(fileName);
 			return;
 		}
 		if (current->getNext() == 0) {
@@ -38,8 +36,7 @@ void Bag::insert_word(string newEntry, std::string fileName) {
 	//if word DNE add to end of list
 	dnode<Word>* newNode = new dnode<Word>();
 	Word* newWord = new Word(newEntry);
-	File* newFile = new File(fileName);
-	newWord->insert(newFile);
+	newWord->insert(fileName);
 	newNode->setData(newWord);
 	lastNode->setNext(newNode);
 }
@@ -54,6 +51,21 @@ void Bag::print_words() {
 		current = current->getNext();
 		if (current != NULL)
 		currentWord = current->getData();
+	}
+}
+
+void Bag::printFilesWithWordThresh(std::string word, int t) {
+	if (head == NULL) return;
+	dnode<Word>* current = head;
+	Word* currentWord = current->getData();
+	while (current != NULL) {
+		if (currentWord->getWord() == word) {
+			//make word member function that iterates through linked list and prints 
+			currentWord->printWordThreshFiles(t);
+			return;
+		}
+		current = current->getNext();
+		if (current != NULL) currentWord = current->getData();
 	}
 }
 

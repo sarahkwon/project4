@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
   
   cout << "This is the next part of the program that you will exercise in the next project." << endl;
   cont.print_words();
-/*
+
   cout<<"Enter word: ";
   std::string word;
   getline(cin, word, '\n'); // input word
@@ -106,9 +106,10 @@ int main(int argc, char* argv[])
   // FILENAMES THAT CONTAINS THE GIVEN WORD
   // ATLEAST THE GIVEN AMOUNT OF TIMES
 
+  cont.printFilesWithWordThresh(word, t);
   // YOU MAY ADD CODE HERE IF NEEDED TO
   // CLEAR ANY DYNAMICALLY ALLOCATED SPACES
-  */
+  
   return 0;
 }
 

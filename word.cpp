@@ -53,14 +53,15 @@ bool Word::containsFile(std::string fileName) {
 	return false;
 }
 
-void Word::insert(File* newEntry) {
+void Word::insert(string newEntry) {
 	if (head == NULL) {
-		head = new dnode<File>(newEntry); 
+		File* newFile = new File(newEntry);
+		head = new dnode<File>(newFile); 
 	}
 	dnode<File>* currentNode = head;
 	File* currentFile = currentNode->getData();
 	while (currentNode != NULL) {
-		if (currentFile->getFileName() == newEntry->getFileName()) {
+		if (currentFile->getFileName() == newEntry) {
 			currentFile->increment();
 			return;
 		}
@@ -68,20 +69,21 @@ void Word::insert(File* newEntry) {
 		currentNode = currentNode->getNext();
 		if (currentNode != NULL) currentFile = currentNode->getData();
 	}
-	dnode<File>* newNode = new dnode<File>(newEntry);
-	sortLexi(newNode); 
+	File* newFile = new File(newEntry);
+	dnode<File>* newNode = new dnode<File>(newFile);
+	sortLexi(&head, newNode); 
 }
 
-void Word::sortLexi(dnode<File>* head, dnode<File>* newNode) {
-	if (head == NULL) {
-		head = newNode;
-	} else if (head->getData()->getFileName() >= newNode->getData()->getFileName()) {
-		newNode->setNext(head);
+void Word::sortLexi( dnode<File>** head_ref, dnode<File>* newNode) {
+	if (*head_ref == NULL) {
+		*head_ref = newNode;
+	} else if ((*head_ref)->getData()->getFileName() >= newNode->getData()->getFileName()) {
+		newNode->setNext(*head_ref);
 		dnode<File>* temp = newNode->getNext();
 		temp->setPrev(newNode); 
-		head = newNode; 
+		*head_ref = newNode; 
 	} else {
-		dnode<File>* current = head;
+		dnode<File>* current = *head_ref;
 		File* currentFile = current->getData();
 		while (current->getNext() != NULL && 
 			currentFile->getFileName() < newNode->getData()->getFileName()) {
@@ -110,6 +112,19 @@ int Word::sum() {
 		result += currentFile->getCount(); 
 	}
 	return result;
+}
+
+void Word::printWordThreshFiles(int t) {
+	if (head == NULL) return;
+	dnode<File>* current = head;
+	File* currentFile = current->getData();
+	while (current != NULL) {
+		if (currentFile->getCount() >= t) {
+			cout << currentFile->getFileName() << endl;
+		}
+		current = current->getNext();
+		if (current != NULL) currentFile = current->getData();
+	}
 }
 
 void Word::printFiles() {

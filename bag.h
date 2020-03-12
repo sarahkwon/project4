@@ -15,7 +15,7 @@ public:
 	void print_words();
 	void printResult(std::string input);
 	void print(std::string word);
-
+	void printFilesWithWordThresh(std::string word, int t);
 private:
 	int bagSize = 0;
 	dnode<Word>* head = 0; 

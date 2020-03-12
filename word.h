@@ -19,13 +19,13 @@ public:
 	std::string getWord() const;
 	int getSize() const;
 	dnode<File>* getHead() const;
-	void insert(File* newEntry);
+	void insert(std::string newEntry);
 	bool containsFile(std::string fileName);
 	void filesIncrement(std::string fileName);
 	int sum();
 	void printFiles();
-	void sortLexi(dnode<File>* newNode); 
-	Word& operator=(Word& var); 
+	void sortLexi(dnode<File>** head_ref, dnode<File>* newNode); 
+	void printWordThreshFiles(int t); 
 
 private:  
 	std::string word;
