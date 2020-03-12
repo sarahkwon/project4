@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
       fin>>word;
       if(fin.eof()) {cout << "EOF " << files[i] << endl; break;}
       // Insert a single C++ statement below to print "<filename>::<word>".
-      cout << "<" << files[i] << ">::" << word << ">" << endl;
+      //cout << "<" << files[i] << ">::" << word << ">" << endl;
       to_lower(word);
       cont.insert_word(word,files[i]);
     }
