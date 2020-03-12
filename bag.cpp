@@ -26,7 +26,7 @@ void Bag::insert_word(string newEntry, std::string fileName) {
 			currentWord->insert(fileName);
 			return;
 		}
-		if (current->getNext() == 0) {
+		if (current->getNext() == NULL) {
 			lastNode = current;
 		}
 		current = current->getNext();

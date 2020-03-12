@@ -71,6 +71,7 @@ void Word::insert(string newEntry) {
 	}
 	File* newFile = new File(newEntry);
 	dnode<File>* newNode = new dnode<File>(newFile);
+	newFile->increment();
 	sortLexi(&head, newNode); 
 }
 

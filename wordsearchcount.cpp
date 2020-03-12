@@ -83,6 +83,8 @@ int main(int argc, char* argv[])
     fin.close();
   }
 
+  //cont.print_words();
+
   cout<<"Enter word: ";
   std::string word;
   getline(cin, word, '\n'); // input word
