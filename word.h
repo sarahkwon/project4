@@ -14,21 +14,22 @@ class Word {
 
 
 public:
-	Word() {word = "";} 
+	Word() {word = ""; head = 0; } 
 	Word(std::string word); 
 	std::string getWord() const;
-	int getSize() const; 
-	void insert(File& newEntry);
+	int getSize() const;
+	dnode<File>* getHead() const;
+	void insert(File* newEntry);
 	bool containsFile(std::string fileName);
 	void filesIncrement(std::string fileName);
 	int sum();
 	void printFiles();
-	//void sortLexi(); 
+	void sortLexi(dnode<File>* newNode); 
 	Word& operator=(Word& var); 
 
 private:  
 	std::string word;
-	dnode<File>* head;
+	dnode<File>* head = 0;
 	int currentSize = 0; //max index of Word 
 };
 

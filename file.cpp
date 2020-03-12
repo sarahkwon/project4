@@ -12,8 +12,7 @@ File::File() {
 }
 
 File::File(std::string fileName) {
-	this->fileName = fileName;
-	count = 1; 
+	this->fileName = fileName; 
 }
 
 int File::getCount() const {

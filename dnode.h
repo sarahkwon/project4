@@ -3,22 +3,48 @@ template <class T>
 class dnode
 {
 private:
-    T data;
+    T* data;
     // forward pointer
     dnode<T>* next;
     // backward pointer
     dnode<T>* prev;
  
 public:
-    dnode(); 
-    ~dnode();
-    dnode(const dnode &source); 
-    dnode& operator= (const dnode &source); 
-    dnode<T>* getNext();
-    dnode<T>* getPrev();
-    void setNext(dnode<T>* newNext);
-    void setPrev(dnode<T>* newPrev);
-    void setData(T newData);
-    T* getData();
+    dnode() {
+	next = 0;
+	prev = 0;
+    }
+
+    dnode(T* newData) {
+	data = newData;
+	next = 0;
+	prev = 0;
+    }
+
+    
+
+dnode<T>* getNext() {
+	return next;
+}
+
+dnode<T>* getPrev() {
+	return prev;
+}
+
+void setNext(dnode<T>* newNext) {
+	next = newNext;
+}
+
+void setPrev(dnode<T>* newPrev) {
+	prev = newPrev; 
+}
+
+void setData(T* newData) {
+	data = newData; 
+}
+
+T* getData() {
+	return data; 
+}
 
 };

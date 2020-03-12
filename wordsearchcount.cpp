@@ -76,15 +76,17 @@ int main(int argc, char* argv[])
       fin>>word;
       if(fin.eof()) {cout << "EOF " << files[i] << endl; break;}
       // Insert a single C++ statement below to print "<filename>::<word>".
+      cout << "<" << files[i] << ">::" << word << ">" << endl;
       to_lower(word);
       cont.insert_word(word,files[i]);
     }
     fin.close();
   }
 
+  
   cout << "This is the next part of the program that you will exercise in the next project." << endl;
   cont.print_words();
-
+/*
   cout<<"Enter word: ";
   std::string word;
   getline(cin, word, '\n'); // input word
@@ -106,7 +108,7 @@ int main(int argc, char* argv[])
 
   // YOU MAY ADD CODE HERE IF NEEDED TO
   // CLEAR ANY DYNAMICALLY ALLOCATED SPACES
-  
+  */
   return 0;
 }
 
