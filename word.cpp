@@ -89,6 +89,7 @@ void Word::sortLexi( dnode<File>** head_ref, dnode<File>* newNode) {
 			currentFile->getFileName() < newNode->getData()->getFileName()) {
 			current = current->getNext();
 			currentFile = current->getData();
+		}	
 			newNode->setNext(current->getNext());
 
 			if (current->getNext() != NULL) {
@@ -98,7 +99,7 @@ void Word::sortLexi( dnode<File>** head_ref, dnode<File>* newNode) {
 
 			current->setNext(newNode);
 			newNode->setPrev(current);
-		}
+		
 	}
 	
 }
