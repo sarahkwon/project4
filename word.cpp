@@ -47,21 +47,39 @@ void Word::insertFiles(Word* wordie) {
 		File* newFile = new File(currentFile->getFileName());
 		dnode<File>* newNode = new dnode<File>(newFile);
 		sortLexi(&head, newNode);
-		cout << head->getData()->getFileName() << endl;
 		current = current->getNext();
 		if (current != NULL) currentFile = current->getData();
 	}
 }
 
-/*
+
 void Word::insertFiles2(Word* wordie) {
 	if (wordie->getHead() == NULL) return;
 	dnode<File>* current = wordie->getHead();
 	File* currentFile = current->getData();
+	
+	dnode<File>* thisWordCurrent = head;
+	File* thisWordCurrentFile = thisWordCurrent->getData();
 	while (current != NULL) {
-		if (currentFile->getFileName() == 
+		while (thisWordCurrent != NULL) {
+			if (thisWordCurrentFile->getFileName() == currentFile->getFileName()) {
+				current = current->getNext();
+				if (current != NULL) currentFile = current->getData();
+				thisWordCurrent = head;
+				thisWordCurrentFile = thisWordCurrent->getData();
+				continue;
+			}
+			thisWordCurrent = thisWordCurrent->getNext();
+			if (thisWordCurrent != NULL) thisWordCurrentFile = thisWordCurrent->getData();
+		}
+		File* newFile = new File(currentFile->getFileName());
+		dnode<File>* newNode = new dnode<File>(newFile);
+		sortLexi(&head, newNode);
+		current = current->getNext();
+		if (current != NULL) currentFile = current->getData();
+
 	}
-} */
+}
 
 bool Word::containsFile(std::string fileName) {
 	if (head == NULL) return false;
