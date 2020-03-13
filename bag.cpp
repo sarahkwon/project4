@@ -108,11 +108,16 @@ void Bag::printWordUnion(std::string word1, std::string word2) {
 
 	}
 
-		
-	dnode<Word>* dummyWordNode = 0;
-	Word* dummyWord = 0;
-	dummyWord->insertFiles(wordOne->getData());	
 
+	Word* dummyWord = 0;
+	if (wordOne != NULL && wordTwo != NULL) {
+		dummyWord->insertFiles(wordOne->getData(), wordTwo->getData());
+		
+	} else if (wordTwo != NULL) { 
+		wordTwo->getData()->printFiles();
+	} else {
+		wordOne->getData()->printFiles();
+	}
 	
 
 }

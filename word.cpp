@@ -49,6 +49,8 @@ void Word::insertFiles(Word* wordie) {
 		if(head == NULL) head = newNode;
 		sortLexi(&head, newNode);
 		cout << head->getData()->getFileName() << endl;
+		current = current->getNext();
+		if (current != NULL) currentFile = current->getData();
 	}
 }
 
