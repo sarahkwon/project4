@@ -53,6 +53,7 @@ void Word::insertFiles(Word* wordie) {
 	}
 }
 
+/*
 void Word::insertFiles2(Word* wordie) {
 	if (wordie->getHead() == NULL) return;
 	dnode<File>* current = wordie->getHead();
@@ -60,7 +61,7 @@ void Word::insertFiles2(Word* wordie) {
 	while (current != NULL) {
 		if (currentFile->getFileName() == 
 	}
-}
+} */
 
 bool Word::containsFile(std::string fileName) {
 	if (head == NULL) return false;
@@ -110,7 +111,7 @@ void Word::sortLexi( dnode<File>** head_ref, dnode<File>* newNode) {
 		dnode<File>* current = *head_ref;
 		File* currentFile = current->getData();
 		while (current->getNext() != NULL && 
-			currentFile->getFileName() < newNode->getData()->getFileName()) {
+			currentFile->getNext()->getFileName() < newNode->getData()->getFileName()) {
 			current = current->getNext();
 			currentFile = current->getData();
 		}	
