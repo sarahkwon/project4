@@ -112,6 +112,7 @@ void Bag::printWordUnion(std::string word1, std::string word2) {
 	Word* dummyWord = new Word();
 	if (wordOne != NULL && wordTwo != NULL) {
 		dummyWord->insertFiles(wordOne->getData());
+		dummyyWord->insertFiles2(wordTwo->getData());
 		
 	} else if (wordTwo != NULL) { 
 		wordTwo->getData()->printFiles();

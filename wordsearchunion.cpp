@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
   // FILENAMES THAT CONTAINS EITHER OR BOTH OF
   // THE GIVEN WORDS
 
-  cont.printWordUnion(word1, word2);
+  //cont.printWordUnion(word1, word2);
 
   // YOU MAY ADD CODE HERE IF NEEDED TO
   // CLEAR ANY DYNAMICALLY ALLOCATED SPACES

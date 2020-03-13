@@ -28,6 +28,7 @@ public:
 	void printWordThreshFiles(int t);
 	void printWordUnion(dnode<Word>* word1Files, dnode<Word>* word2Files);
 	void insertFiles(Word* wordie);
+	void insertFiles2(Word* wordie);
 
 private:  
 	std::string word;

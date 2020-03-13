@@ -53,6 +53,15 @@ void Word::insertFiles(Word* wordie) {
 	}
 }
 
+void Word::insertFiles2(Word* wordie) {
+	if (wordie->getHead() == NULL) return;
+	dnode<File>* current = wordie->getHead();
+	File* currentFile = current->getData();
+	while (current != NULL) {
+		if (currentFile->getFileName() == 
+	}
+}
+
 bool Word::containsFile(std::string fileName) {
 	if (head == NULL) return false;
 	dnode<File>* currentNode = head;
