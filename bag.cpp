@@ -117,8 +117,10 @@ void Bag::printWordUnion(std::string word1, std::string word2) {
 		
 	} else if (wordTwo != NULL) { 
 		wordTwo->getData()->printFiles();
-	} else {
+	} else if (wordOne != NULL){
 		wordOne->getData()->printFiles();
+	} else {
+		return;
 	}
 	
 
