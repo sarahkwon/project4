@@ -15,6 +15,10 @@ File::File(std::string fileName) {
 	this->fileName = fileName; 
 }
 
+void File::setCount(int cunt) {
+	count = cunt;
+}
+
 int File::getCount() const {
 	return count;
 }

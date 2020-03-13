@@ -25,7 +25,9 @@ public:
 	int sum();
 	void printFiles();
 	void sortLexi(dnode<File>** head_ref, dnode<File>* newNode); 
-	void printWordThreshFiles(int t); 
+	void printWordThreshFiles(int t);
+	void printWordUnion(dnode<Word>* word1Files, dnode<Word>* word2Files);
+	void insertFiles(Word* wordie);
 
 private:  
 	std::string word;

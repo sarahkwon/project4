@@ -47,4 +47,9 @@ T* getData() {
 	return data; 
 }
 
+dnode<T>& operator=(dnode<T> source) {
+	source.swap(*this);
+	return *this;
+}
+
 };

@@ -39,6 +39,19 @@ void Word::filesIncrement(std::string fileName) {
 	}
 }
 
+void Word::insertFiles(Word* wordie) {
+	if (wordie->getHead() == NULL) return;
+	dnode<File>* current = wordie->getHead();
+	File* currentFile = current->getData();
+	while (current != NULL) {
+		File* newFile = new File(currentFile->getFileName());
+		dnode<File>* newNode = new dnode<File>(newFile);
+		if(head == NULL) head = newNode;
+		sortLexi(&head, newNode);
+		cout << head->getData()->getFileName() << endl;
+	}
+}
+
 bool Word::containsFile(std::string fileName) {
 	if (head == NULL) return false;
 	dnode<File>* currentNode = head;
@@ -134,11 +147,13 @@ void Word::printFiles() {
 	dnode<File>* current = head;
 	File* currentFile = current->getData();
 	while (current != NULL) {
-		cout << currentFile->getFileName() << "::" << currentFile->getCount() << endl;
+		cout << currentFile->getFileName() << endl;
 		current = current->getNext();
 		if (current != NULL) currentFile = current->getData();
 	}
 }
+
+
 
 //Word& Word::operator=(Word& source) {
 	

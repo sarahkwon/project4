@@ -14,6 +14,7 @@ public:
 	File(std::string fileName);
 	int getCount() const;
 	std::string getFileName() const;
+	void setCount(int cunt);
 	void increment();
 private:
 	std::string fileName;

@@ -21,7 +21,6 @@ void Bag::insert_word(string newEntry, std::string fileName) {
 	Word* currentWord = current->getData();
 	dnode<Word>* lastNode = 0;
 	while (current != NULL) {
-		//if newEntry == current Node then increment file
 		if (currentWord->getWord() == newEntry) {
 			currentWord->insert(fileName);
 			return;
@@ -86,5 +85,34 @@ void Bag::print(std::string input) {
 	if (!isThere) {
 		cout << "Word not found in database" << endl;
 	}
+}
+
+void Bag::printWordUnion(std::string word1, std::string word2) {
+	if (head == NULL) return; 
+
+	dnode<Word>* wordOne = 0;
+	dnode<Word>* wordTwo = 0;
+	dnode<Word>* current = head;
+	Word* currentWord = current->getData();
+	while (current != NULL) {
+		if (currentWord->getWord() == word1) {
+			wordOne = current;
+		}
+		if (currentWord->getWord() == word2) {
+			wordTwo = current;
+		}
+		current = current->getNext();
+		if (current != NULL) currentWord = current->getData();
+	
+	
+
+	}
+
+		
+	dnode<Word>* dummyWordNode = 0;
+	Word* dummyWord = 0;
+	dummyWord->insertFiles(wordOne->getData());	
+
+	
 
 }

@@ -8,7 +8,7 @@
 #include<string>
 
 // ADD ANY HEADER FILES YOU NEED
-
+#include "bag.h"
 
 using namespace std;
 
@@ -100,6 +100,8 @@ int main(int argc, char* argv[])
   // BAG OBJECT CREATED AT LINE 46 FOR PRINTING
   // FILENAMES THAT CONTAINS EITHER OR BOTH OF
   // THE GIVEN WORDS
+
+  cont.printWordUnion(word1, word2);
 
   // YOU MAY ADD CODE HERE IF NEEDED TO
   // CLEAR ANY DYNAMICALLY ALLOCATED SPACES
