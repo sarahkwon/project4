@@ -98,7 +98,7 @@ void Bag::printWordUnion(std::string word1, std::string word2) {
 		if (currentWord->getWord() == word1) {
 			wordOne = current;
 		}
-		if (currentWord->getWord() == word2) {
+		if (currentWord->getWord() == word2 && wordOne->getData()->getWord() != currentWord->getWord()) {
 			wordTwo = current;
 		}
 		current = current->getNext();
@@ -109,7 +109,7 @@ void Bag::printWordUnion(std::string word1, std::string word2) {
 	}
 
 
-	Word* dummyWord = 0;
+	Word* dummyWord = new Word();
 	if (wordOne != NULL && wordTwo != NULL) {
 		dummyWord->insertFiles(wordOne->getData());
 		
