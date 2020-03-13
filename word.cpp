@@ -111,7 +111,7 @@ void Word::sortLexi( dnode<File>** head_ref, dnode<File>* newNode) {
 		dnode<File>* current = *head_ref;
 		File* currentFile = current->getData();
 		while (current->getNext() != NULL && 
-			currentFile->getNext()->getFileName() < newNode->getData()->getFileName()) {
+			current->getNext()->getData()->getFileName() < newNode->getData()->getFileName()) {
 			current = current->getNext();
 			currentFile = current->getData();
 		}	
